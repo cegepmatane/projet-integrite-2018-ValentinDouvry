@@ -8,6 +8,37 @@ public class Stationnement
 	protected String nombreEtage;
 	
 	
+	public Stationnement(String nom)
+	{
+		super();
+		this.nom = nom;
+	}
+	
+	public Stationnement(String nom, String nombrePlace)
+	{
+		super();
+		this.nom = nom;
+		this.nombrePlace = nombrePlace;
+	}
+	
+	public Stationnement(String nom, String nombrePlace, String ville)
+	{
+		this.nom= nom;
+		this.nombrePlace = nombrePlace;
+		this.ville = ville;
+	}
+	
+	public Stationnement(String nom, String nombrePlace, String ville, String nombreEtage)
+	{
+		this.nom = nom;
+		this.nombrePlace = nombrePlace;
+		this.ville = ville;
+		this.nombreEtage = nombreEtage;
+	}
+	
+	
+	
+	
 	public String getNom() {
 		return nom;
 	}
