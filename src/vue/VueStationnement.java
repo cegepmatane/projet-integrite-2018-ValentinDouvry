@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import modele.Stationnement;
 
 public class VueStationnement extends Application
 {
@@ -14,6 +15,12 @@ public class VueStationnement extends Application
 	//Stationnement - nom/nombrePlace/ville/nombreEtage
 	//Voiture - marque/couleur/modele/puissance
 	
+	protected Label valeurNom;
+	protected Label valeurNombrePlace;
+	protected Label valeurVille;
+	protected Label valeurNombreEtage;
+	
+	
 	@Override
 	public void start(Stage stade) throws Exception 
 	{
@@ -21,19 +28,19 @@ public class VueStationnement extends Application
 		Pane panneau = new Pane();
 		GridPane grilleStationnement = new GridPane();
 		
-		Label valeurNom = new Label("Parking de l'est");
+		valeurNom = new Label("");
 		grilleStationnement.add(new Label("Nom : "), 0, 0);
 		grilleStationnement.add(valeurNom, 1, 0);
 		
-		Label valeurNombrePlace = new Label("450 places");
+		valeurNombrePlace = new Label("");
 		grilleStationnement.add(new Label("Nombre de place : "), 0, 1);
 		grilleStationnement.add(valeurNombrePlace, 1, 1);
 		
-		Label valeurVille = new Label("Montreal");
+		valeurVille = new Label("");
 		grilleStationnement.add(new Label("Ville : "), 0, 2);
 		grilleStationnement.add(valeurVille, 1, 2);
 		
-		Label valeurNombreEtage = new Label("2 etages");
+		valeurNombreEtage = new Label("");
 		grilleStationnement.add(new Label("Nombre d'etage : "), 0, 3);
 		grilleStationnement.add(valeurNombreEtage, 1, 3);
 		
@@ -44,6 +51,19 @@ public class VueStationnement extends Application
 		stade.setScene(new Scene(panneau,500,500));
 		stade.show();
 				
+		
+		/*Test*/
+		
+		Stationnement stationnement = new Stationnement("Parking Roger","600 places","Matane","1");
+		this.afficherStationnement(stationnement);
+	}
+	
+	public void afficherStationnement(Stationnement stationnement)
+	{
+		this.valeurNom.setText(stationnement.getNom());
+		this.valeurNombrePlace.setText(stationnement.getNombrePlace());
+		this.valeurVille.setText(stationnement.getVille());
+		this.valeurNombreEtage.setText(stationnement.getNombreEtage());
 	}
 	
 	
