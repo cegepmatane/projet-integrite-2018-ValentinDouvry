@@ -1,9 +1,15 @@
+import vue.VueStationnement;
 
-public class App {
+public class App 
+{
 
-	public static void main(String[] args) 
+	public static void main(String[] parametres) 
 	{
+		/*----------- Sujet --------------*/
+		//Stationnement - nombrePlace/ville/nombreEtages
+		//Voiture - marque/couleur/modele/puissance
 		
+		VueStationnement.launch(VueStationnement.class, parametres);
 
 	}
 
