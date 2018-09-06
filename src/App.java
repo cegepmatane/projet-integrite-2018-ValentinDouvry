@@ -1,3 +1,4 @@
+import vue.VueListeStationnement;
 import vue.VueStationnement;
 
 public class App 
@@ -9,7 +10,9 @@ public class App
 		//Stationnement - nom/nombrePlace/ville/nombreEtages
 		//Voiture - marque/couleur/modele/puissance
 		
-		VueStationnement.launch(VueStationnement.class, parametres);
+		//VueStationnement.launch(VueStationnement.class, parametres);
+		
+		VueListeStationnement.launch(VueListeStationnement.class, parametres);
 
 	}
 

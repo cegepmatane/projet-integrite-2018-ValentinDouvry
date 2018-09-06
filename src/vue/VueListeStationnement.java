@@ -5,6 +5,7 @@ import java.util.List;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -39,7 +40,17 @@ public class VueListeStationnement extends Application
 	
 	public void afficherListeStationnement(List<Stationnement> listeStationnements)
 	{
+		int numero = 0;
+		this.grilleStationnements.add(new Label("Nom : "), 0, numero);
+		this.grilleStationnements.add(new Label("Nombre de place : "), 1, numero);
 		
+		for(Stationnement stationnement:listeStationnements)
+		{
+			numero++;
+			this.grilleStationnements.add(new Label(stationnement.getNom()), 0, numero);
+			this.grilleStationnements.add(new Label(stationnement.getNombrePlace()), 1, numero);
+		}
 	}
+	
 	
 }
