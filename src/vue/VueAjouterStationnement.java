@@ -51,7 +51,9 @@ public class VueAjouterStationnement extends Application
 	
 	public Stationnement demanderStationnement()
 	{
-		return null;
+		Stationnement stationnement = new Stationnement(this.valeurNom.getText(), this.valeurNombrePlace.getText(),this.valeurVille.getText(), this.valeurNombreEtage.getText());
+		
+		return stationnement;
 	}
 	
 	
