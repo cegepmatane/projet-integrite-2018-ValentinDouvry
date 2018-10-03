@@ -7,6 +7,7 @@ public class Voiture
 	protected String modele;
 	protected String puissance;
 	protected String couleur;
+	protected int idVoiture;
 	protected int idStationnement;
 	
 	
@@ -37,12 +38,21 @@ public class Voiture
 		this.couleur = couleur;
 	}
 	
-	public Voiture(String marque, String modele, String puissance, String couleur, int idStationnement) {
+	public Voiture(String marque, String modele, String puissance, String couleur, int idVoiture) {
 		super();
 		this.marque = marque;
 		this.modele = modele;
 		this.puissance = puissance;
 		this.couleur = couleur;
+		this.idVoiture = idVoiture;
+	}	
+	public Voiture(String marque, String modele, String puissance, String couleur, int idVoiture, int idStationnement) {
+		super();
+		this.marque = marque;
+		this.modele = modele;
+		this.puissance = puissance;
+		this.couleur = couleur;
+		this.idVoiture = idVoiture;
 		this.idStationnement = idStationnement;
 	}
 
@@ -77,5 +87,23 @@ public class Voiture
 	public void setCouleur(String couleur) {
 		this.couleur = couleur;
 	}
+
+	public int getIdVoiture() {
+		return idVoiture;
+	}
+
+	public void setIdVoiture(int idVoiture) {
+		this.idVoiture = idVoiture;
+	}
+
+	public int getIdStationnement() {
+		return idStationnement;
+	}
+
+	public void setIdStationnement(int idStationnement) {
+		this.idStationnement = idStationnement;
+	}
+	
+	
 	
 }

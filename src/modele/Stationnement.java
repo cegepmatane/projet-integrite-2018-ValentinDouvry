@@ -80,6 +80,14 @@ public class Stationnement
 	public void setNombreEtage(String nombreEtage) {
 		this.nombreEtage = nombreEtage;
 	}
+
+	public int getIdStationnement() {
+		return idStationnement;
+	}
+
+	public void setIdStationnement(int idStationnement) {
+		this.idStationnement = idStationnement;
+	}
 	
 	
 	

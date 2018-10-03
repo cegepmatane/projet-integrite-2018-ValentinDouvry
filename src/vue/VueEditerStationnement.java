@@ -12,62 +12,66 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modele.Stationnement;
 
-public class VueAjouterStationnement extends Application
+public class VueEditerStationnement extends Application
 {
 	protected TextField valeurNom;
 	protected TextField valeurNombrePlace;
 	protected TextField valeurVille;
 	protected TextField valeurNombreEtage;
+	protected Button buttonEnregistrerStationnement;
 	
-	protected Button bouttonEnregistrer;
+	private int idStationnement = 0;
 	
 	@Override
 	public void start(Stage stade) throws Exception 
 	{
+		Stationnement stationnement = new Stationnement("Parking Roger","600 places","Matane","1");
+		
 		VBox panneau = new VBox();
 		GridPane grilleStationnement = new GridPane();
-		bouttonEnregistrer = new Button("Enregistrer");
-		this.bouttonEnregistrer.setOnAction(new EventHandler<ActionEvent>() 
-		{			
+		this.buttonEnregistrerStationnement = new Button("Enregistrer");
+		this.buttonEnregistrerStationnement.setOnAction(new EventHandler<ActionEvent>() {
+			
 			@Override
-			public void handle(ActionEvent arg0)
+			public void handle(ActionEvent event) 
 			{
-				System.out.println("" + demanderStationnement().getNom() + " " + demanderStationnement().getVille() + " ");				
+				
+				System.out.println(demanderStationnement().getNom() +" "+ demanderStationnement().getNombrePlace() +" "+ demanderStationnement().getVille() +" "+ demanderStationnement().getNombreEtage());				
 			}
 		});
 		
-		
-		valeurNom = new TextField("");
+		valeurNom = new TextField(stationnement.getNom());
 		grilleStationnement.add(new Label("Nom : "), 0, 0);
 		grilleStationnement.add(valeurNom, 1, 0);
 		
-		valeurNombrePlace = new TextField("");
+		valeurNombrePlace = new TextField(stationnement.getNombrePlace());
 		grilleStationnement.add(new Label("Nombre de place : "), 0, 1);
 		grilleStationnement.add(valeurNombrePlace, 1, 1);
 		
-		valeurVille = new TextField("");
+		valeurVille = new TextField(stationnement.getVille());
 		grilleStationnement.add(new Label("Ville : "), 0, 2);
 		grilleStationnement.add(valeurVille, 1, 2);
 		
-		valeurNombreEtage = new TextField("");
+		valeurNombreEtage = new TextField(stationnement.getNombreEtage());
 		grilleStationnement.add(new Label("Nombre d'etage : "), 0, 3);
 		grilleStationnement.add(valeurNombreEtage, 1, 3);
 		
-		panneau.getChildren().add(new Label("Ajouter un stationnement"));
+		panneau.getChildren().add(new Label("Editer un stationnement"));
 		panneau.getChildren().add(grilleStationnement);
-		panneau.getChildren().add(this.bouttonEnregistrer);
+		panneau.getChildren().add(this.buttonEnregistrerStationnement);
+		
 		stade.setScene(new Scene(panneau,500,500));
 		stade.show();
 		
-				
 	}
 	
 	public Stationnement demanderStationnement()
 	{
-		Stationnement stationnement = new Stationnement(this.valeurNom.getText(), this.valeurNombrePlace.getText(),this.valeurVille.getText(), this.valeurNombreEtage.getText());
+		Stationnement stationnement = new Stationnement(this.valeurNom.getText(), this.valeurNombrePlace.getText(), this.valeurVille.getText(), this.valeurNombreEtage.getText());
+		stationnement.setIdStationnement(idStationnement);
 		
 		return stationnement;
 	}
 	
-	
+
 }
