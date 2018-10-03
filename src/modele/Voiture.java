@@ -7,6 +7,7 @@ public class Voiture
 	protected String modele;
 	protected String puissance;
 	protected String couleur;
+	protected int idStationnement;
 	
 	
 	
@@ -34,6 +35,15 @@ public class Voiture
 		this.modele = modele;
 		this.puissance = puissance;
 		this.couleur = couleur;
+	}
+	
+	public Voiture(String marque, String modele, String puissance, String couleur, int idStationnement) {
+		super();
+		this.marque = marque;
+		this.modele = modele;
+		this.puissance = puissance;
+		this.couleur = couleur;
+		this.idStationnement = idStationnement;
 	}
 
 	public String getMarque() {

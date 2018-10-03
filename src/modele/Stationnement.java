@@ -6,6 +6,7 @@ public class Stationnement
 	protected String nombrePlace;
 	protected String ville;
 	protected String nombreEtage;
+	protected int idStationnement;
 	
 	
 	public Stationnement(String nom)
@@ -34,6 +35,15 @@ public class Stationnement
 		this.nombrePlace = nombrePlace;
 		this.ville = ville;
 		this.nombreEtage = nombreEtage;
+	}
+	
+	public Stationnement(String nom, String nombrePlace, String ville, String nombreEtage, int idStationnement)
+	{
+		this.nom = nom;
+		this.nombrePlace = nombrePlace;
+		this.ville = ville;
+		this.nombreEtage = nombreEtage;
+		this.idStationnement = idStationnement;
 	}
 	
 	
