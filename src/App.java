@@ -14,9 +14,9 @@ public class App
 		
 		//VueStationnement.launch(VueStationnement.class, parametres);
 		
-		VueListeStationnement.launch(VueListeStationnement.class, parametres);
+		//VueListeStationnement.launch(VueListeStationnement.class, parametres);
 		
-		//VueAjouterStationnement.launch(VueAjouterStationnement.class, parametres);
+		VueAjouterStationnement.launch(VueAjouterStationnement.class, parametres);
 
 	}
 

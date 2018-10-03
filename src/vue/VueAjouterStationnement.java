@@ -1,6 +1,8 @@
 package vue;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,11 +19,22 @@ public class VueAjouterStationnement extends Application
 	protected TextField valeurVille;
 	protected TextField valeurNombreEtage;
 	
+	protected Button bouttonEnregistrer;
+	
 	@Override
 	public void start(Stage stade) throws Exception 
 	{
 		VBox panneau = new VBox();
 		GridPane grilleStationnement = new GridPane();
+		bouttonEnregistrer = new Button("Enregistrer");
+		this.bouttonEnregistrer.setOnAction(new EventHandler<ActionEvent>() 
+		{			
+			@Override
+			public void handle(ActionEvent arg0)
+			{
+				//System.out.println("" + demanderStationnement().getNom() + " " + demanderStationnement().getVille() + " ");				
+			}
+		});
 		
 		
 		valeurNom = new TextField("");
@@ -42,7 +55,7 @@ public class VueAjouterStationnement extends Application
 		
 		panneau.getChildren().add(new Label("Ajouter un stationnement"));
 		panneau.getChildren().add(grilleStationnement);
-		panneau.getChildren().add(new Button("Enregistrer"));
+		panneau.getChildren().add(this.bouttonEnregistrer);
 		stade.setScene(new Scene(panneau,500,500));
 		stade.show();
 		

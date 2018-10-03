@@ -15,15 +15,13 @@ import modele.Stationnement;
 public class VueListeStationnement extends Application
 {
 	protected GridPane grilleStationnements;
-	//protected Button bouttonModifierStationnement;
+	
 
 	@Override
 	public void start(Stage stade) throws Exception 
 	{
 		Pane panneau = new Pane();
 		grilleStationnements = new GridPane();
-		//bouttonModifierStationnement = new Button();
-		//bouttonModifierStationnement.setText("Modifier");
 		
 		
 		panneau.getChildren().add(grilleStationnements);
