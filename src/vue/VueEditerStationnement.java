@@ -126,6 +126,7 @@ public class VueEditerStationnement extends Scene
 		int item = 0;
 		for(Voiture voiture : listeVoitures)
 		{
+			Button actionSupprimerVoiture = new Button("Supprimer");
 			Button actionEditerVoiture = new Button("Modifier");
 			actionEditerVoiture.setOnAction(new EventHandler<ActionEvent>() {
 				
@@ -141,6 +142,7 @@ public class VueEditerStationnement extends Scene
 			this.grilleListeVoitures.add(new Label(voiture.getPuissance() + "	"), 2, item);
 			this.grilleListeVoitures.add(new Label(voiture.getCouleur() + "	"), 3, item);
 			this.grilleListeVoitures.add(actionEditerVoiture, 4, item);
+			this.grilleListeVoitures.add(actionSupprimerVoiture, 5, item);
 			item++;
 		}		
 	}
