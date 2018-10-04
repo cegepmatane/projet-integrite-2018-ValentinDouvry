@@ -51,7 +51,7 @@ public class ControleurStationnement
 		//this.vueStationnement.afficherStationnement(stationnement);
 		//this.navigateur.naviguerVersVueStationnement();
 		
-		this.vueListeStationnement.afficherListeStationnement(stationnementDAO.simulerListeStationnement());
+		this.vueListeStationnement.afficherListeStationnement(stationnementDAO.listerStationnements());
 		this.navigateur.naviguerVersVueListeStationnement();
 	}
 	
@@ -60,7 +60,7 @@ public class ControleurStationnement
 		System.out.println("ControleurStationnement.notifierEnregistrerNouveauStationnement()");
 		Stationnement stationnement = this.navigateur.getVueAjouterStationnement().demanderStationnement();
 		this.stationnementDAO.ajouterStationnement(stationnement);
-		this.vueListeStationnement.afficherListeStationnement(this.stationnementDAO.listerStationnement());
+		this.vueListeStationnement.afficherListeStationnement(this.stationnementDAO.listerStationnements());
 		this.navigateur.naviguerVersVueListeStationnement();
 	}
 	
@@ -69,7 +69,7 @@ public class ControleurStationnement
 		System.out.println("ControleurStationnement.notifierEnregistrerStationnement()");
 		Stationnement stationnement = this.navigateur.getVueEditerStationnement().demanderStationnement();
 		this.stationnementDAO.modifierStationnement(stationnement);
-		this.vueListeStationnement.afficherListeStationnement(this.stationnementDAO.listerStationnement());
+		this.vueListeStationnement.afficherListeStationnement(this.stationnementDAO.listerStationnements());
 		this.navigateur.naviguerVersVueListeStationnement();		
 	}
 	

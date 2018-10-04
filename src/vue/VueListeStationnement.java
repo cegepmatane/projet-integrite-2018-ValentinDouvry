@@ -71,6 +71,8 @@ public class VueListeStationnement extends Scene
 				controleur.notifierNaviguerAjouterStationnement();
 			}
 		});
+		
+		this.grilleStationnements.add(this.actionNaviguerAjouterStationnement, 1, ++numero);
 	}
 	
 	public void setControleur(ControleurStationnement controleur)
