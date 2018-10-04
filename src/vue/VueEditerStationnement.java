@@ -23,8 +23,9 @@ public class VueEditerStationnement extends Scene
 	protected TextField valeurNombrePlace;
 	protected TextField valeurVille;
 	protected TextField valeurNombreEtage;
-	protected Button actionEnregistrerStationnement = null;;
-	//GridPane grilleVoiture = new GridPane();
+	protected Button actionEnregistrerStationnement = null;
+	protected GridPane grilleListeVoitures = new GridPane();
+	protected Button actionAjouterDistinction = null;
 	
 	private int idStationnement = 0;
 	
@@ -36,18 +37,27 @@ public class VueEditerStationnement extends Scene
 		super(new VBox(),600,600);
 		VBox panneau = (VBox) this.getRoot();
 		//Stationnement stationnementTest = new Stationnement("Parking Roger","600 places","Matane","1");
-		
-		/*Voiture voitureTest1 = new Voiture("Audi", "R8", "598 ch", "Rouge");
+		/*TEST*/
+		Voiture voitureTest1 = new Voiture("Audi", "R8", "598 ch", "Rouge");
 		Voiture voitureTest2 = new Voiture("Peugeot", "206", "75 ch", "Blanche");
 		Voiture voitureTest3 = new Voiture("BMW", "R6", "240 ch", "Noir");
 		
 		List listeVoituresTest = new ArrayList<Voiture>();
 		listeVoituresTest.add(voitureTest1);
 		listeVoituresTest.add(voitureTest2);
-		listeVoituresTest.add(voitureTest3);*/	
-		
-		
+		listeVoituresTest.add(voitureTest3);	
+		/*FIN TEST*/
 		GridPane grilleStationnement = new GridPane();
+		
+		this.actionAjouterDistinction = new Button("Ajouter une voiture");
+		this.actionAjouterDistinction.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) 
+			{
+				controleur.notifierNaviguerAjouterVoiture();
+			}
+		});
 		
 		this.actionEnregistrerStationnement = new Button("Enregistrer");
 		this.actionEnregistrerStationnement.setOnAction(new EventHandler<ActionEvent>() {
@@ -79,12 +89,13 @@ public class VueEditerStationnement extends Scene
 		panneau.getChildren().add(grilleStationnement);
 		panneau.getChildren().add(this.actionEnregistrerStationnement);
 		
-		//panneau.getChildren().add(grilleVoiture);
+		panneau.getChildren().add(grilleListeVoitures);
+		panneau.getChildren().add(actionAjouterDistinction);
 		
 		
 		
 		//afficherStationnement(stationnementTest);
-		//afficherListeVoiture(listeVoituresTest);
+		afficherListeVoiture(listeVoituresTest);
 		
 		
 	}
@@ -106,20 +117,33 @@ public class VueEditerStationnement extends Scene
 		this.valeurNombreEtage.setText(stationnement.getNombreEtage());
 	}
 	
-	/*public void afficherListeVoiture(List<Voiture> listeVoitures)
+	public void afficherListeVoiture(List<Voiture> listeVoitures)
 	{
-		this.grilleVoiture.getChildren().clear();
+		this.grilleListeVoitures.getChildren().clear();
+		
+		
+		
 		int item = 0;
 		for(Voiture voiture : listeVoitures)
 		{
-			this.grilleVoiture.add(new Label(voiture.getMarque() + "	"), 0, item);
-			this.grilleVoiture.add(new Label(voiture.getModele() + "	"), 1, item);
-			this.grilleVoiture.add(new Label(voiture.getPuissance() + "	"), 2, item);
-			this.grilleVoiture.add(new Label(voiture.getCouleur() + "	"), 3, item);
-			this.grilleVoiture.add(new Button("Modifier"), 4, item);
+			Button actionEditerVoiture = new Button("Modifier");
+			actionEditerVoiture.setOnAction(new EventHandler<ActionEvent>() {
+				
+				@Override
+				public void handle(ActionEvent event) 
+				{
+					controleur.notifierNaviguerEditerVoiture(voiture.getIdVoiture());
+				}
+			});
+				
+			this.grilleListeVoitures.add(new Label(voiture.getMarque() + "	"), 0, item);
+			this.grilleListeVoitures.add(new Label(voiture.getModele() + "	"), 1, item);
+			this.grilleListeVoitures.add(new Label(voiture.getPuissance() + "	"), 2, item);
+			this.grilleListeVoitures.add(new Label(voiture.getCouleur() + "	"), 3, item);
+			this.grilleListeVoitures.add(actionEditerVoiture, 4, item);
 			item++;
 		}		
-	}*/
+	}
 	
 	public void setControleur(ControleurStationnement controleur)
 	{

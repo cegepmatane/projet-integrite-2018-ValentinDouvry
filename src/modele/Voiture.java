@@ -38,22 +38,22 @@ public class Voiture
 		this.couleur = couleur;
 	}
 	
-	public Voiture(String marque, String modele, String puissance, String couleur, int idVoiture) {
+	public Voiture(String marque, String modele, String puissance, String couleur, int idStationnement) {
 		super();
 		this.marque = marque;
 		this.modele = modele;
 		this.puissance = puissance;
 		this.couleur = couleur;
-		this.idVoiture = idVoiture;
-	}	
-	public Voiture(String marque, String modele, String puissance, String couleur, int idVoiture, int idStationnement) {
-		super();
-		this.marque = marque;
-		this.modele = modele;
-		this.puissance = puissance;
-		this.couleur = couleur;
-		this.idVoiture = idVoiture;
 		this.idStationnement = idStationnement;
+	}	
+	public Voiture(String marque, String modele, String puissance, String couleur, int idStationnement, int idVoiture) {
+		super();
+		this.marque = marque;
+		this.modele = modele;
+		this.puissance = puissance;
+		this.couleur = couleur;
+		this.idStationnement = idStationnement;
+		this.idVoiture = idVoiture;
 	}
 
 	public String getMarque() {

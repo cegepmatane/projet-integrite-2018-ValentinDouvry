@@ -13,6 +13,8 @@ public class NavigateurDesVues extends Application
 	private VueListeStationnement vueListeStationnement = null;
 	private VueAjouterStationnement vueAjouterStationnement = null;
 	private VueEditerStationnement vueEditerStationnement = null;
+	private VueAjouterVoiture vueAjouterVoiture = null;
+	private VueEditerVoiture vueEditerVoiture = null;
 	
 	private ControleurStationnement controleur = null;
 	
@@ -22,6 +24,8 @@ public class NavigateurDesVues extends Application
 		this.vueListeStationnement = new VueListeStationnement();
 		this.vueAjouterStationnement = new VueAjouterStationnement();
 		this.vueEditerStationnement = new VueEditerStationnement();
+		this.vueAjouterVoiture = new VueAjouterVoiture();
+		this.vueEditerVoiture = new VueEditerVoiture();
 	}
 	
 	@Override
@@ -36,6 +40,8 @@ public class NavigateurDesVues extends Application
 		this.vueListeStationnement.setControleur(controleur);
 		this.vueAjouterStationnement.setControleur(controleur);
 		this.vueEditerStationnement.setControleur(controleur);
+		this.vueAjouterVoiture.setControleur(controleur);
+		this.vueEditerVoiture.setControleur(controleur);
 	}
 
 	public VueStationnement getVueStationnement() {
@@ -52,8 +58,16 @@ public class NavigateurDesVues extends Application
 
 	public VueEditerStationnement getVueEditerStationnement() {
 		return this.vueEditerStationnement;
+	}	
+	
+	public VueAjouterVoiture getVueAjouterVoiture() {
+		return this.vueAjouterVoiture;
 	}
 	
+	public VueEditerVoiture getVueEditerVoiture() {
+		return this.vueEditerVoiture;
+	}
+
 	public void naviguerVersVueStationnement()
 	{
 		stade.setScene(this.vueStationnement);
@@ -76,6 +90,19 @@ public class NavigateurDesVues extends Application
 	{
 		stade.setScene(this.vueEditerStationnement);
 		stade.show();
-	}	
+	}
+	
+	public void naviguerVersVueAjouterVoiture()
+	{
+		stade.setScene(this.vueAjouterVoiture);
+		stade.show();
+	}
+	
+	public void naviguerVersVueEditerVoiture()
+	{
+		stade.setScene(this.vueEditerVoiture);
+		stade.show();
+	}
+	
 	
 }
