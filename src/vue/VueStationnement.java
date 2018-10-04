@@ -1,5 +1,6 @@
 package vue;
 
+import action.ControleurStationnement;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -8,25 +9,21 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import modele.Stationnement;
 
-public class VueStationnement extends Application
+public class VueStationnement extends Scene
 {
-
-	/*----------- Sujet --------------*/
-	//Stationnement - nom/nombrePlace/ville/nombreEtage
-	//Voiture - marque/couleur/modele/puissance
 	
 	protected Label valeurNom;
 	protected Label valeurNombrePlace;
 	protected Label valeurVille;
 	protected Label valeurNombreEtage;
 	
+	private ControleurStationnement controleur = null;
 	
-	@Override
-	public void start(Stage stade) throws Exception 
+	
+	public VueStationnement()
 	{
-		
-		Pane panneau = new Pane();
-		GridPane grilleStationnement = new GridPane();
+		super(new GridPane(),600,600);		
+		GridPane grilleStationnement = (GridPane) this.getRoot();
 		
 		valeurNom = new Label("");
 		grilleStationnement.add(new Label("Nom : "), 0, 0);
@@ -42,20 +39,8 @@ public class VueStationnement extends Application
 		
 		valeurNombreEtage = new Label("");
 		grilleStationnement.add(new Label("Nombre d'etage : "), 0, 3);
-		grilleStationnement.add(valeurNombreEtage, 1, 3);
-		
-		panneau.getChildren().add(grilleStationnement);
-		
-		
-		
-		stade.setScene(new Scene(panneau,500,500));
-		stade.show();
-				
-		
-		/*Test*/
-		
-		Stationnement stationnement = new Stationnement("Parking Roger","600 places","Matane","1");
-		this.afficherStationnement(stationnement);
+		grilleStationnement.add(valeurNombreEtage, 1, 3);				
+
 	}
 	
 	public void afficherStationnement(Stationnement stationnement)
@@ -64,6 +49,11 @@ public class VueStationnement extends Application
 		this.valeurNombrePlace.setText(stationnement.getNombrePlace());
 		this.valeurVille.setText(stationnement.getVille());
 		this.valeurNombreEtage.setText(stationnement.getNombreEtage());
+	}
+	
+	public void setControleur(ControleurStationnement controleur)
+	{
+		this.controleur = controleur;
 	}
 	
 	

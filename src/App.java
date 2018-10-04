@@ -1,3 +1,4 @@
+import vue.NavigateurDesVues;
 import vue.VueAjouterStationnement;
 import vue.VueEditerStationnement;
 import vue.VueListeStationnement;
@@ -19,7 +20,9 @@ public class App
 		
 		//VueAjouterStationnement.launch(VueAjouterStationnement.class, parametres);
 
-		VueEditerStationnement.launch(VueEditerStationnement.class,parametres);
+		//VueEditerStationnement.launch(VueEditerStationnement.class,parametres);
+		
+		NavigateurDesVues.launch(NavigateurDesVues.class, parametres);
 	}
 
 }

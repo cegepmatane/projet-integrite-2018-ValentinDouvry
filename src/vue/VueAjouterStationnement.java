@@ -1,5 +1,6 @@
 package vue;
 
+import action.ControleurStationnement;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,27 +13,31 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import modele.Stationnement;
 
-public class VueAjouterStationnement extends Application
+public class VueAjouterStationnement extends Scene
 {
 	protected TextField valeurNom;
 	protected TextField valeurNombrePlace;
 	protected TextField valeurVille;
 	protected TextField valeurNombreEtage;
 	
-	protected Button bouttonEnregistrer;
+	protected Button actionEnregistrerStationnement = null;
 	
-	@Override
-	public void start(Stage stade) throws Exception 
+	private ControleurStationnement controleur = null;
+	
+	
+	public VueAjouterStationnement()
 	{
-		VBox panneau = new VBox();
+		super(new VBox(),600,600);
+		VBox panneau = (VBox) this.getRoot();
+		
 		GridPane grilleStationnement = new GridPane();
-		bouttonEnregistrer = new Button("Enregistrer");
-		this.bouttonEnregistrer.setOnAction(new EventHandler<ActionEvent>() 
+		this.actionEnregistrerStationnement = new Button("Enregistrer");
+		this.actionEnregistrerStationnement.setOnAction(new EventHandler<ActionEvent>() 
 		{			
 			@Override
 			public void handle(ActionEvent arg0)
 			{
-				System.out.println("" + demanderStationnement().getNom() + " " + demanderStationnement().getVille() + " ");				
+					controleur.notifierEnregistrerNouveauStationnement();			
 			}
 		});
 		
@@ -55,9 +60,8 @@ public class VueAjouterStationnement extends Application
 		
 		panneau.getChildren().add(new Label("Ajouter un stationnement"));
 		panneau.getChildren().add(grilleStationnement);
-		panneau.getChildren().add(this.bouttonEnregistrer);
-		stade.setScene(new Scene(panneau,500,500));
-		stade.show();
+		panneau.getChildren().add(this.actionEnregistrerStationnement);
+		
 		
 				
 	}
@@ -67,6 +71,11 @@ public class VueAjouterStationnement extends Application
 		Stationnement stationnement = new Stationnement(this.valeurNom.getText(), this.valeurNombrePlace.getText(),this.valeurVille.getText(), this.valeurNombreEtage.getText());
 		
 		return stationnement;
+	}
+	
+	public void setControleur(ControleurStationnement controleur)
+	{
+		this.controleur = controleur;
 	}
 	
 	
